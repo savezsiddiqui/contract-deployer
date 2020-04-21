@@ -16,8 +16,8 @@ const deploy = async () => {
 
     try {
         result = await new web3.eth.Contract(JSON.parse(interface))
-            .deploy({ data: '0x' + bytecode })
-            .send({ gas: '1000000', from: accounts[0] });
+            .deploy({ data: '0x' + bytecode, arguments: [56] })
+            .send({ gas: '3000000', value: "1000000000000000000", from: accounts[0] });
     }
     catch (err) {
         console.log('Error: ', err.message);
